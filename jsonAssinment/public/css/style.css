@@ -1,0 +1,62 @@
+
+body
+{	background:url('../../img/back.jpg');
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-align: center;
+}
+ ul li
+{
+	list-style-type:none;
+}
+img{
+	width:50px;
+	height:50px;
+}
+#searchBox
+{
+	width:200px;
+	height:50px;
+	font-size: 25px;
+}
+.wraper
+{
+	margin:0px auto;
+}
+#searct-btn
+{
+	width:50px;
+	height:50px;
+	font-size: 25px;
+	margin:0px;
+}
+#lode-btn
+{
+	width:auto;
+	height:50px;
+	font-size: 25px;
+	margin-left:20px;
+}
+header
+{
+	background-color:#7BC2ED;
+	border-radius: 30px 30px;
+	text-align:center;
+	height: 50px;
+}
+table tr
+{
+	height:auto;
+}
+table tr td
+{
+	border:2px solid;
+	font-size:15PX;
+
+}
+@media (max-width: 480px) {
+	    #details {
+        width: 100%;
+    }
+}
+

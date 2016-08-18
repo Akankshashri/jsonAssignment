@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Friends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="includes/css/styles.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wraper">
+        <div class="container" id="main">
+            <header>
+                <h1>Friends Details</h1>
+            </header>
+            <div class="well">
+                <div class="page-header">
+                    <h1>Details of Friends.
+                        <small>Take a look.</small>
+                        </h1>
+                </div>
+                <!-- end page header bootstrap class -->
+                <p id="para">
+                    <input type="text" id="searchBox" placeholder="Search by title">
+                    <button id="search-btn">Go!</button>
+                    <button id="viewAll" type="button" class="btn btn-default">View All</button>
+                </p>
+                <dir class="col-mg-11">
+                    <a href="#addWindow" role="button" class="btn btn-info btn-block" data-toggle="modal"><span class="glyphicon glyphicon-hand-up"></span> Add new Data</a>
+                    <dir class="modal fade" id="addWindow">
+                        <dir class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add Friends Details</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        <small class="text-muted"> This form is for Adding Details    </small>
+                                    </p>
+                                    <form id="addForm" class="form-horizontal">
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputName" type="text" placeholder="name" maxlength="40" required>
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputAge" type="number" placeholder="Age" required>
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputeyeColor" type="text" placeholder="eyeColor">
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="email" required>
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputeyeAddress" type="text" placeholder="Address">
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputGender" type="text" placeholder="gender">
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputPhone" type="text" placeholder="phone" required>
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <input class="form-control" id="inputImg" type="text" placeholder="phone">
+                                            </dir>
+                                        </div>
+                                        <div class="form-group">
+                                            <dir class="col-lg-10">
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                    <input id="DOB" type='text' class="form-control" max="1976-1-1" min="1998-01-01" />
+                                                    <span class="input-group-addon">
+                                                 <span class="glyphicon glyphicon-calendar">
+                                                 </span>
+                                                    </span>
+                                                </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-onfo">
+                                    </form>
+                                </div>
+                                <!-- end modal body -->
+                                <div class="modal-footer">
+                                    <!--  <button  type="button" class="btn btn-onfo">save</button> 
+                                 -->
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                                </div>
+                            </div>
+                            <!-- end model-content -->
+                            </dir>
+                            <!-- end model-dialog -->
+                        </dir>
+                        <!-- end myModel -->
+                    </dir>
+                    <!-- end add panal -->
+                    <div class="table-responsive">
+                        <table id="details" class="table">
+                        </table>
+                    </div>
+            </div>
+        </div>
+        <!-- end tab-content -->
+    </div>
+    </div>
+    <!-- details template to show the data in table -->
+    <template id="details-template">
+        <tr>
+            <td>
+                <a class="showWindow" role="button" href="#showModelWindow" data-toggle="modal" data-id='{{id}}'><img src={{picture}}></a>
+                <dir class="modal fade" id="showModelWindow">
+                    <dir class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    <small class="text-muted"> This form is for Showing Details    </small>
+                                </p>
+                                <form class="form-horizontal">
+                                    <ul id="friendData"></ul>
+                                </form>
+                            </div>
+                            <!-- end modal body -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                            </div>
+                        </div>
+                        <!-- end model-content -->
+                    </dir>
+                    <!-- end model-dialog -->
+                </dir>
+                <!-- end of showmodel -->
+            </td>
+            <td>{{name}}</td>
+            <td>{{gender}}</td>
+            <td>{{email}}</td>
+            <td>{{phone}}</td>
+            <td>
+                <button data-id='{{id}}' class='update' type='button' class='btn btn-onfo' data-dismiss='modal' data-toggle="modal" href="#updateWindow">Update</button>
+                <dir class="modal fade" id="updateWindow">
+                    <dir class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Update Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    <small class="text-muted"> This form is for Updating Details  </small>
+                                </p>
+                                <form class="form-horizontal">
+                                    <div id="updateTemplateContainer">
+                                    </div>
+                                </form>
+            </td>
+            <td>
+                <button data-id='{{id}}' class='delete' type='button' class='btn btn-onfo' data-dismiss='modal'>Delete</button>
+            </td>
+        </tr>
+    </template>
+    <!-- show template to show the data in modal window -->
+    <template id="showTemplate">
+        <li><img src={{picture}}></li>
+        <li>{{id}}</li>
+        <li>{{name}}</li>
+        <li>{{age}}</li>
+        <li>{{eyeColor}}</li>
+        <li>{{gender}}</li>
+        <li>{{email}}</li>
+        <li>{{phone}}</li>
+        <li>{{DBO}}</li>
+        <li>{{address}}</li>
+    </template>
+    <!-- update Template -->
+    <template id="updateTemplate">
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" value={{name}} id="updateName" type="text" placeholder="name">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" value={{age}} id="updateAge" type="text" placeholder="Age">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" value={{eyeColor}} id="updateEyeColor" type="text" placeholder="eyeColor">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" value={{email}} id="updateEmail" type="text" placeholder="email">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" value={{address}} id="updateAddress" type="text" placeholder="Address">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" value={{gender}} id="updateGender" type="text" placeholder="gender">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" value={{phone}} id="updatePhone" type="text" placeholder="phone">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <input class="form-control" id="updateImg" value={{picture}} type="url" placeholder="phone">
+            </dir>
+        </div>
+        <div class="form-group">
+            <dir class="col-lg-10">
+                <div class='input-group date' id='updateDatetimepicker'>
+                    <input id="updateDOB" type='text' class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+        </div>
+        </div>
+        <!-- end modal body -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+            <button id="SaveUpdate" data-id='{{id}}' type="button" class="btn btn-default" data-dismiss="modal">Update</button>
+        </div>
+        </div>
+        <!-- end model-content -->
+        </dir>
+        <!-- end model-dialog -->
+        </dir>
+        <!-- end of showmodel -->
+    </template>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/getData.js"></script>
+    <!-- All Javascript at the bottom of the page for faster page loading -->
+    <!-- If no online access, fallback to our hardcoded version of jQuery -->
+    <script src="includes/js/jquery-1.8.2.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.4/js/fileinput.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.4/js/fileinput.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- used for template -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+    <!-- Custom JS -->
+    <script src="includes/js/script.js"></script>
+</body>
+
+</html>
