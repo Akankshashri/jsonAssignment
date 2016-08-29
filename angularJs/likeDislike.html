@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<body ng-app="myModule">
+<div ng-controller="myController">
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Likes</th>
+		<th>Dislikes</th>
+		<th>Likes/Dislikes</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="techonology in technologies">
+			<td>{{techonology.name}}</td>
+			<td>{{techonology.likes}}</td>
+			<td>{{techonology.Dislikes}}</td>
+			<td><input type="button" value="LIke" ng-click="incrementLikes(techonology)"></td>
+			<td><input type="button" value="DislIke" ng-click="incrementDislikes(techonology)"></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="js/likeDislike.js"></script>
+</body>
+</html>

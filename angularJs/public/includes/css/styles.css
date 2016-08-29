@@ -1,0 +1,133 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.col-sm-6 {
+    
+}
+
+.input-group {
+    margin: 5px 0px;
+}
+
+#features {
+    text-align: center;
+}
+
+#inputMessage {
+    margin-bottom: 15px;
+}
+
+#features img {
+    margin: 0px 0px 20px 0px;
+    width: 200px;
+    height: 200px;
+}
+
+footer {
+    background-color: #333;
+    color: #eee;
+    font-size: 11px;
+    padding: 20px;
+}
+
+ul.unstyle {
+    list-style: none;
+    padding: 0px;
+}
+
+.list-group img {
+    width: 150px;
+    height: 150px;
+}
+
+.well .page-header {
+    margin-top: 0px;
+}
+
+.well .page-header h2 {
+    margin-top: 0px;
+}
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+
+#searchInput {
+    width: 200px;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+}
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+#myCarousel .item {
+    height: 400px;
+}
+
+#slide1 {
+    background: url('../../images/carousel_medium_01.jpg') top center no-repeat;
+}
+
+#slide2 {
+    background: url('../../images/carousel_medium_02.jpg') top center no-repeat;
+}
+
+#slide3 {
+    background: url('../../images/carousel_medium_03.jpg') top center no-repeat;
+}
+/* --------------------------------------
+   Global Styles
+   -------------------------------------- */
+.alert {
+    display: none;
+}
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+@media (max-width: 480px) {
+    #myCarousel .item {
+        height: 310px;
+    }
+    #slide1 {
+        background: url('../../images/carousel_xsmall_01.jpg') top center no-repeat;
+    }
+    #slide2 {
+        background: url('../../images/carousel_xsmall_02.jpg') top center no-repeat;
+    }
+    #slide3 {
+        background: url('../../images/carousel_xsmall_03.jpg') top center no-repeat;
+    }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+    #myCarousel .item {
+        height: 310px;
+    }
+    #slide1 {
+        background: url('../../images/carousel_small_01.jpg') top center no-repeat;
+    }
+    #slide2 {
+        background: url('../../images/carousel_small_02.jpg') top center no-repeat;
+    }
+    #slide3 {
+        background: url('../../images/carousel_small_03.jpg') top center no-repeat;
+    }
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+    #myCarousel .item {
+        height: 500px;
+    }
+    #slide1 {
+        background: url('../../images/carousel_large_01.jpg') top center no-repeat;
+    }
+    #slide2 {
+        background: url('../../images/carousel_large_02.jpg') top center no-repeat;
+    }
+    #slide3 {
+        background: url('../../images/carousel_large_03.jpg') top center no-repeat;
+    }
+}

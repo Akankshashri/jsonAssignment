@@ -1,0 +1,29 @@
+table thead th
+{
+	border: 2px solid black;
+	font-size:25px;
+	cursor:pointer;
+}
+table tr td
+{
+	border: 2px solid black;
+	font-size:20px;
+}
+.arrow-up
+{
+	width:0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right:5px solid transparent;
+	border-bottom:10px solid black;
+	display: inline-block;
+}
+.arrow-down
+{
+	width:0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right:5px solid transparent;
+	border-top:10px solid black;
+	display: inline-block;
+}

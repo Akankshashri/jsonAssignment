@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<body ng-app="myModule">
+<div ng-controller="myController">
+<ul>
+	<li ng-repeat="country in countries">
+		{{country.name}}-Index={{$index}}
+		<ul>
+			<li ng-repeat="city in country.cities">
+				{{city.name}}-parent 
+			</li>
+		</ul>
+	</li>
+</ul>	
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="js/emaple1.js"></script>
+</body>
+</html>

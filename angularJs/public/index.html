@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Friends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="includes/css/styles.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body ng-app="getData">
+    <div class="container" id="wrep">
+        <div ng-controller="viewAll">
+            <header>
+                <p>Friends Details</p>
+            </header>
+            <div class="bivColor">
+                <div class="col-md-2">
+                    <button type="button" class="btn button-info" ng-click="load()">
+                        View All </button>
+                     <!--    <div ng-repeat="friend in friends">
+                            {{friend}}
+                        </div> -->
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <input class="form-control" ng-model="searchText" placeholder="search Friends" type="text" id="#search">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn button-info" ng-click="search(searchText)">
+                            Search</button>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                    <button type="button" class="btn button-info" data-toggle="modal" data-target="#addWindow" ng-click="refersh()">
+                        <span class="glyphicon glyphicon-hand-up" ></span> Add new Data
+                    </button>
+                </div>
+            </div>
+            <div class="modal fade" id="addWindow">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Friends Details</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                <small class="text-muted"> This form is for Adding Details    </small>
+                            </p>
+                            <form ng-submit="addFriends()" class="form-horizontal">
+                                <!-- name -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.name" type="text" placeholder="name" maxlength="40" required>
+                                    </div>
+                                </div>
+                                <!-- DOB -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.dob" type="text" placeholder="date of birth" required>
+                                    </div>
+                                </div>
+                                <!-- image -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.picture" type="text" placeholder="image">
+                                    </div>
+                                </div>
+                                <!-- eyecolor -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.eyeColor" type="text" placeholder="eyeColor">
+                                    </div>
+                                </div>
+                                <!-- gender -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.gender" type="text" placeholder="gender">
+                                    </div>
+                                </div>
+                                <!-- phone -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.phone" type="text" placeholder="phone" required>
+                                    </div>
+                                </div>
+                                <!-- email -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.email" type="email" placeholder="email" required>
+                                    </div>
+                                </div>
+                                <!-- address -->
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        <input class="form-control" ng-model="inputdata.address" type="text" placeholder="Address">
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn btn-onfo">
+                            </form>
+                        </div>
+                        <!-- end modal body -->
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="updateBtn" ng-show="t" ng-click="updatesrevise()">update</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                        </div>
+                    </div>
+                    <!-- end model-content -->
+                </div>
+                <!-- end model-dialog -->
+            </div>
+        
+        <div class="col-mg-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th ng-repeat="(key,value) in friends[0]">{{key}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="friend in friends">
+                        <td ng-repeat="(key, val) in friend ">{{val}}</td>
+                        <td><span class="glyphicon glyphicon-trash" ng-click="delete($index)"></span></td>
+                        <td><span class="glyphicon glyphicon-pencil" ng-click="edit(friend.id)" data-toggle="modal" data-target="#addWindow" ></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+    </div>
+    
+    <footer>
+    </footer>
+    <!-- All Javascript at the bottom of the page for faster page loading -->
+    <!-- If no online access, fallback to our hardcoded version of jQuery -->
+    <script src="includes/js/jquery-1.8.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="includes/js/script.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="js/getData.js"></script>
+     <script type="text/javascript" src="js/update.js"></script>
+      <script type="text/javascript" src="js/addData.js"></script>
+</body>
+
+</html>
